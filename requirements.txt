@@ -1,4 +1,5 @@
-python
+python:
+
 pyautogui
 time
 pandas 
@@ -8,3 +9,10 @@ logging
 tkinter 
 flask-socketio
 flask
+
+apps:
+
+python
+java
+receitanet
+ecf sped
