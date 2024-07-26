@@ -1,6 +1,6 @@
 # ECF Automation
 
-Este projeto automatiza a transmissão do ECF para várias empresas utilizando o Domínio Web Thomson Reuters e o app ECF da Receita Federal. A automação é realizada utilizando `pyautogui` para simular interações com a interface do usuário e `tkinter` para criar uma interface gráfica para o usuário. O `pandas` é utilizado para manipulação dos dados das empresas a partir de um arquivo CSV.
+Este projeto automatiza a transmissão do ECF para várias empresas utilizando o Domínio Web Thomson Reuters e o app ECF da Receita Federal. A automação é realizada utilizando `pyautogui` para simular interações com a interface do usuário e `tkinter` para criar uma interface gráfica para o usuário. O `pandas` é utilizado para manipulação dos dados das empresas a partir de um arquivo CSV. Além disso, o projeto utiliza Flask-SocketIO para atualizar logs em tempo real na interface web.
 
 ## Instalação
 
@@ -20,11 +20,30 @@ Este projeto automatiza a transmissão do ECF para várias empresas utilizando o
 
 ## Uso
 
+1. **Execute o servidor Flask-SocketIO:**
+    ```bash
+    python app.py
+    ```
 
+2. **Execute o script de automação:**
+    ```bash
+    python automatizacao.py
+    ```
+
+3. **Acesse a interface web para visualizar os logs em tempo real:**
+    Abra um navegador web e vá para `http://127.0.0.1:5000/`.
 
 ## Dependências
 
+- Python 3.x
+- pyautogui
+- pandas
+- tkinter
+- Flask
+- Flask-SocketIO
+- socketio
 
+Certifique-se de que todas as dependências estão listadas no arquivo `requirements.txt`.
 
 ## Contribuição
 
@@ -36,6 +55,4 @@ Este projeto automatiza a transmissão do ECF para várias empresas utilizando o
 
 ## Licença
 
-Este projeto está licenciado sob dieirtos reservados ao autor.
-
-
+Este projeto está licenciado sob direitos reservados ao autor.
