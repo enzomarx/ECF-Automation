@@ -1,43 +1,6 @@
 # ECF Automation
 
 Este projeto automatiza a transmissão do ECF para várias empresas utilizando o Domínio Web Thomson Reuters e o app ECF da Receita Federal. A automação é realizada utilizando `pyautogui` para simular interações com a interface do usuário e `tkinter` para criar uma interface gráfica para o usuário. O `pandas` é utilizado para manipulação dos dados das empresas a partir de um arquivo CSV.
-a
-## Estrutura de Diretórios
-
-ecf_automation/
-│
-├── src/
-│ ├── init.py
-│ ├── automation.py
-│ └── gui.py
-│
-├── data/
-│ └── empresas.csv
-│
-├── assets/
-│ └── README.md
-│
-├── tests/
-│ ├── init.py
-│ └── test_automation.py
-│
-├── requirements.txt
-└── README.md
-
-
-- `src/`: Contém os arquivos fonte do projeto.
-  - `__init__.py`: Torna este diretório um pacote Python.
-  - `automation.py`: Contém o código para a automação da transmissão do ECF.
-  - `gui.py`: Contém o código para a interface gráfica do usuário.
-- `data/`: Contém os arquivos de dados, como o CSV com as empresas e códigos.
-  - `empresas.csv`: Arquivo CSV contendo as informações das empresas.
-- `assets/`: Diretório para arquivos adicionais, como screenshots, documentação adicional, etc.
-  - `README.md`: Explicação sobre o conteúdo dos assets.
-- `tests/`: Contém testes automatizados para o projeto.
-  - `__init__.py`: Torna este diretório um pacote Python.
-  - `test_automation.py`: Arquivo de testes para o código de automação.
-- `requirements.txt`: Lista de dependências do projeto.
-- `README.md`: Documentação principal do projeto.
 
 ## Instalação
 
