@@ -7,11 +7,10 @@ import logging
 from tkinter import Tk, filedialog, simpledialog, messagebox
 from socketio import Client
 
-# Configuração de logging
+# logging
 logging.basicConfig(filename='automacao.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Conexão com o servidor Flask-SocketIO
 sio = Client()
 sio.connect('http://localhost:5000')
 
