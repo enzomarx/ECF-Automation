@@ -1,3 +1,10 @@
+python
 pyautogui
-tkinter
-pandas
+time
+pandas 
+shutil
+os
+logging
+tkinter 
+flask-socketio
+flask
