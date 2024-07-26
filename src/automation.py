@@ -62,20 +62,17 @@ def get_sleep_multiplier():
     )
     return multiplier
 
-# Mostrar mensagem informativa sobre a resolução
 def show_resolution_message():
     root = Tk()
     root.withdraw()
     messagebox.showinfo("Resolução Padrão", "Resolução padrão: 1366 x 768")
 
-# Selecionar o arquivo CSV
 show_resolution_message()
 tabela_path = select_csv_file()
 if not tabela_path:
     log_error("Nenhum arquivo CSV selecionado")
     raise Exception("Nenhum arquivo CSV selecionado")
 
-# Selecionar a pasta source_folder
 source_folder = select_folder("Selecione a pasta de origem (source_folder)")
 if not source_folder:
     log_error("Nenhuma pasta de origem selecionada")
