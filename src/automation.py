@@ -78,22 +78,18 @@ if not source_folder:
     log_error("Nenhuma pasta de origem selecionada")
     raise Exception("Nenhuma pasta de origem selecionada")
 
-# Selecionar a pasta destination_folder
 destination_folder = select_folder("Selecione a pasta de destino (destination_folder)")
 if not destination_folder:
     log_error("Nenhuma pasta de destino selecionada")
     raise Exception("Nenhuma pasta de destino selecionada")
 
-# Obter o multiplicador de tempo
 sleep_multiplier = get_sleep_multiplier()
 if sleep_multiplier is None:
     log_error("Multiplicador de tempo não foi definido")
     raise Exception("Multiplicador de tempo não foi definido")
 
-# Configuração de pausa para o PyAutoGUI
 pyautogui.PAUSE = 0.60 * sleep_multiplier
 
-# Carregar a tabela
 try:
     tabela = pd.read_csv(tabela_path)
     log_event(f"Tabela carregada de {tabela_path}")
@@ -168,7 +164,6 @@ def automate_process():
             log_error(f"Erro ao processar linha {linha}: {e}")
             take_screenshot(f'erro_linha_{linha}.png')
 
-    # Mover arquivos
     move_files(source_folder, destination_folder)
 
 if __name__ == "__main__":
