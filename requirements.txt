@@ -1,18 +1,16 @@
 python:
 
-pyautogui
-time
-pandas 
-shutil
-os
-logging
-tkinter 
-flask-socketio
-flask
+- Python 3.x
+- pyautogui
+- pandas
+- tkinter
+- Flask
+- Flask-SocketIO
+- socketio
 
 apps:
 
 python
-java
-receitanet
-ecf sped
+- java
+- receitanet
+- ecf sped
