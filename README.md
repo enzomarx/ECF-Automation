@@ -20,20 +20,11 @@ Este projeto automatiza a transmissão do ECF para várias empresas utilizando o
 
 ## Uso
 
-1. Coloque o arquivo `empresas.csv` no diretório `data/` com as informações das empresas.
-2. Execute a interface gráfica do usuário:
-    ```bash
-    python src/gui.py
-    ```
 
-3. Insira o período desejado e clique em "Iniciar" para iniciar a automação.
 
 ## Dependências
 
-- `pyautogui`: Biblioteca para automação da interação com a interface do usuário.
-- `tkinter`: Biblioteca para criação de interfaces gráficas.
-- `pandas`: Biblioteca para manipulação de dados.
-- `time`: Biblioteca padrão do Python para controle de tempo.
+
 
 ## Contribuição
 
@@ -45,6 +36,6 @@ Este projeto automatiza a transmissão do ECF para várias empresas utilizando o
 
 ## Licença
 
-Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está licenciado sob dieirtos reservados ao autor.
 
 
