@@ -5,16 +5,23 @@ import shutil
 import os
 import logging
 from tkinter import Tk, filedialog, simpledialog, messagebox
+from socketio import Client
 
-# logging
+# Configuração de logging
 logging.basicConfig(filename='automacao.log', level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
+# Conexão com o servidor Flask-SocketIO
+sio = Client()
+sio.connect('http://localhost:5000')
+
 def log_event(message):
     logging.info(message)
+    sio.emit('log_update', {'message': message})
 
 def log_error(message):
     logging.error(message)
+    sio.emit('log_update', {'message': message})
 
 def take_screenshot(filename):
     screenshot = pyautogui.screenshot()
@@ -56,34 +63,41 @@ def get_sleep_multiplier():
     )
     return multiplier
 
+# Mostrar mensagem informativa sobre a resolução
 def show_resolution_message():
     root = Tk()
     root.withdraw()
     messagebox.showinfo("Resolução Padrão", "Resolução padrão: 1366 x 768")
 
+# Selecionar o arquivo CSV
 show_resolution_message()
 tabela_path = select_csv_file()
 if not tabela_path:
     log_error("Nenhum arquivo CSV selecionado")
     raise Exception("Nenhum arquivo CSV selecionado")
 
+# Selecionar a pasta source_folder
 source_folder = select_folder("Selecione a pasta de origem (source_folder)")
 if not source_folder:
     log_error("Nenhuma pasta de origem selecionada")
     raise Exception("Nenhuma pasta de origem selecionada")
 
+# Selecionar a pasta destination_folder
 destination_folder = select_folder("Selecione a pasta de destino (destination_folder)")
 if not destination_folder:
     log_error("Nenhuma pasta de destino selecionada")
     raise Exception("Nenhuma pasta de destino selecionada")
 
+# Obter o multiplicador de tempo
 sleep_multiplier = get_sleep_multiplier()
 if sleep_multiplier is None:
     log_error("Multiplicador de tempo não foi definido")
     raise Exception("Multiplicador de tempo não foi definido")
 
+# Configuração de pausa para o PyAutoGUI
 pyautogui.PAUSE = 0.60 * sleep_multiplier
 
+# Carregar a tabela
 try:
     tabela = pd.read_csv(tabela_path)
     log_event(f"Tabela carregada de {tabela_path}")
@@ -158,7 +172,9 @@ def automate_process():
             log_error(f"Erro ao processar linha {linha}: {e}")
             take_screenshot(f'erro_linha_{linha}.png')
 
+    # Mover arquivos
     move_files(source_folder, destination_folder)
 
 if __name__ == "__main__":
     automate_process()
+    sio.disconnect()
